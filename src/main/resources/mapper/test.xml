@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.cos.blog.repository.BoardRepository">
+  <select id="findAll" resultType="com.cos.blog.model.Board">
+  <!-- select일 때만 resultType을 적어주면 된다. resultSet작업을 해줘야 되기 때문 -->
+    SELECT * FROM board b, user u WHERE b.userId = u.id ORDER BY b.id DESC
+    <!-- #{id}는 jsp의 ?를 넣는거랑 같다. -->
+  </select>
+   <select id="findById" resultType="com.cos.blog.model.Board">
+  	SELECT * FROM board WHERE id = #{id}
+  </select>
+  <insert id="save">
+  	INSERT INTO board(title, content, userId, createDate) 
+  	VALUES(#{title}, #{content}, 1, now())
+  </insert>
+  <update id="update">
+  	UPDATE board SET title = #{title}, content = #{content} 
+  	WHERE id = #{id} 
+  </update>
+  <delete id="delete">
+  	DELETE FROM board WHERE id = #{id}
+  </delete>
+</mapper>
