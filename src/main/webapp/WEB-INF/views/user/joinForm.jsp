@@ -19,8 +19,7 @@
 		<div class="row">
 			<div class="col-lg-8 col-md-10 mx-auto">
 				<div class="site-heading">
-					<h1>Clean Blog</h1>
-					<span class="subheading">A Blog Theme by Start Bootstrap</span>
+					<h1>회원가입</h1>
 
 				</div>
 			</div>
@@ -32,25 +31,18 @@
 <div class="container">
 	<div class="row">
 		<div class="col-lg-8 col-md-10 mx-auto">
-
-			<c:forEach var="board" items="${boards}">
-
-				<div class="post-preview">
-					<a href="board/detail/${board.id}">
-						<h2 class="post-title">${board.title}</h2>
-					</a>
-					<p class="post-meta">
-						Posted by ${board.username} ${board.createDate}
-					</p>
-				</div>
-				<hr>
-				
-			</c:forEach>
-
-			<!-- Pager -->
-			<div class="clearfix">
-				<a class="btn btn-primary float-right" href="#">Older Posts
-					&rarr;</a>
+			<div class="container">
+				<form action="/user/join" method="post">
+					<div class="form-group">
+						<label for="usr">ID:</label> <input type="text"
+							class="form-control" id="username" name="username">
+					</div>
+					<div class="form-group">
+						<label for="pwd">Password:</label> <input type="password"
+							class="form-control" id="password" name="password">
+					</div>					
+					<button type="submit" class="btn btn-primary">회원가입</button>
+				</form>
 			</div>
 
 		</div>
@@ -58,5 +50,6 @@
 </div>
 
 <hr>
+
 
 <%@include file="/WEB-INF/views/include/footer.jsp"%>

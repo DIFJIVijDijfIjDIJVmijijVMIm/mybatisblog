@@ -28,11 +28,12 @@
 <div class="container">
 	<div class="row">
 		<div class="col-lg-8 col-md-10 mx-auto">
-			<form class="row contact_form" action="board/write"  method="post">
+			<form class="row contact_form" action="/board/write"  method="post">
 				<div class="col-md-12">
 					<div class="form-group">
+						<input type="hidden" name="userId" value="${sessionScope.user.id}"/>
 						<input type="text" class="form-control" id="title" name="title"
-							placeholder="title">
+							value="${sessionScope.userId}">
 					</div>
 
 				</div>

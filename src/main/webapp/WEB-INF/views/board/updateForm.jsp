@@ -2,7 +2,6 @@
 	pageEncoding="UTF-8"%>
 
 <%@include file="/WEB-INF/views/include/nav.jsp"%>
-
 <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script> 
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script> 
@@ -11,7 +10,7 @@
 
 <!-- Page Header -->
 <header class="masthead"
-	style="background-image: url('../resources/img/home-bg.jpg')">
+	style="background-image: url('/resources/img/home-bg.jpg')">
 	<div class="overlay"></div>
 	<div class="container">
 		<div class="row">
@@ -29,11 +28,12 @@
 <div class="container">
 	<div class="row">
 		<div class="col-lg-8 col-md-10 mx-auto">
-			<form class="row contact_form" action="board/update"  method="post">
+			<form class="row contact_form" action="/board/update"  method="post">
 				<div class="col-md-12">
 					<div class="form-group">
+						<input type="hidden" name="id" value="${board.id}" />
 						<input type="text" class="form-control" id="title" name="title"
-							placeholder="${board.title}">
+							value="${board.title}">
 					</div>
 
 				</div>
